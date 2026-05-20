@@ -6,7 +6,7 @@
 <title>ЗІГ ЗАГ — Меню</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@300;400;500&display=block" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -50,11 +50,10 @@
     pointer-events: none;
   }
 
-  .skull-icon { font-size: 26px; line-height: 1; margin-bottom: 6px; display: block; filter: grayscale(1) brightness(0.5); }
-
   .logo {
-    font-family: 'Black Ops One', cursive;
+    font-family: 'Black Ops One', sans-serif;
     font-size: clamp(42px, 13vw, 60px);
+    font-style: normal;
     color: #fff;
     letter-spacing: 4px;
     line-height: 1;
@@ -121,7 +120,8 @@
   .menu-body { padding: 18px 14px 30px; max-width: 480px; margin: 0 auto; }
 
   .section-title {
-    font-family: 'Black Ops One', cursive;
+    font-family: 'Black Ops One', sans-serif;
+    font-style: normal;
     font-size: 20px;
     color: var(--red);
     letter-spacing: 2px;
@@ -188,7 +188,8 @@
   }
 
   .item-price {
-    font-family: 'Black Ops One', cursive;
+    font-family: 'Black Ops One', sans-serif;
+    font-style: normal;
     font-size: 16px;
     color: var(--red-light);
     white-space: nowrap;
@@ -219,7 +220,7 @@
     max-width: 480px;
     margin: 0 auto;
   }
-  .footer-logo { font-family: 'Black Ops One', cursive; font-size: 16px; color: var(--gray2); letter-spacing: 3px; margin-bottom: 5px; }
+  .footer-logo { font-family: 'Black Ops One', sans-serif; font-style: normal; font-size: 16px; color: var(--gray2); letter-spacing: 3px; margin-bottom: 5px; }
   .footer-text { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 1.5px; color: var(--gray2); text-transform: uppercase; }
   .footer-road { margin-top: 12px; font-size: 18px; opacity: 0.12; letter-spacing: 4px; }
 
@@ -233,7 +234,6 @@
 <body>
 
 <div class="header">
-  <span class="skull-icon">☠️</span>
   <div class="logo">ЗІГ <span>ЗАГ</span></div>
   <div class="divider-line"><span>✦</span></div>
   <div class="tagline">Меню закладу</div>
