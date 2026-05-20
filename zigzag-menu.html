@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗІГ ЗАГ — Меню</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0d0d0d;
+    --black2: #181818;
+    --black3: #222222;
+    --red: #cc1f1f;
+    --red-dark: #8f1010;
+    --red-light: #e63232;
+    --cream: #f0e8dc;
+    --gray: #aaa;
+    --gray2: #555;
+    --border: #2e2e2e;
+  }
+
+  html, body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Oswald', sans-serif;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: var(--black);
+    padding: 36px 20px 28px;
+    text-align: center;
+    border-bottom: 2px solid var(--red);
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 18px,
+        rgba(204,31,31,0.04) 18px,
+        rgba(204,31,31,0.04) 19px
+      );
+    pointer-events: none;
+  }
+
+  .skull-icon {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 6px;
+    display: block;
+    filter: grayscale(1) brightness(0.6);
+  }
+
+  .logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(44px, 14vw, 62px);
+    color: #fff;
+    letter-spacing: 4px;
+    line-height: 1;
+    text-shadow:
+      3px 3px 0 var(--red-dark),
+      6px 6px 0 rgba(0,0,0,0.5);
+    position: relative;
+  }
+
+  .logo span {
+    color: var(--red);
+  }
+
+  .tagline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gray2);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  .divider-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px auto 0;
+    max-width: 280px;
+  }
+  .divider-line::before,
+  .divider-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--red-dark);
+  }
+  .divider-line span {
+    color: var(--red);
+    font-size: 14px;
+  }
+
+  /* ── CATEGORY BAR ── */
+  .cat-bar {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: var(--black2);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .cat-bar::-webkit-scrollbar { display: none; }
+
+  .cat-btn {
+    flex-shrink: 0;
+    padding: 13px 18px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .cat-btn:hover {
+    color: var(--cream);
+    background: var(--black3);
+  }
+  .cat-btn.active {
+    color: var(--red-light);
+    border-bottom-color: var(--red);
+    background: var(--black3);
+  }
+
+  /* ── MENU BODY ── */
+  .menu-body {
+    padding: 20px 16px 32px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Black Ops One', cursive;
+    font-size: 22px;
+    color: var(--red);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--red-dark);
+    opacity: 0.5;
+  }
+
+  /* ── ITEM CARD ── */
+  .item-card {
+    background: var(--black2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red-dark);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    transition: border-left-color 0.2s, background 0.2s;
+  }
+  .item-card:active {
+    border-left-color: var(--red-light);
+    background: var(--black3);
+  }
+
+  .item-info { flex: 1; min-width: 0; }
+
+  .item-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--cream);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .item-desc {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 7px;
+  }
+  .badge {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .badge-veg   { background: rgba(50,120,50,0.15); color: #7ec97e; border: 1px solid rgba(50,120,50,0.3); }
+  .badge-spicy { background: rgba(204,31,31,0.15); color: var(--red-light); border: 1px solid rgba(204,31,31,0.3); }
+  .badge-new   { background: rgba(200,150,30,0.15); color: #d4a835; border: 1px solid rgba(200,150,30,0.3); }
+
+  .item-price {
+    font-family: 'Black Ops One', cursive;
+    font-size: 17px;
+    color: var(--red-light);
+    white-space: nowrap;
+    padding-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 24px 20px 36px;
+    border-top: 1px solid var(--border);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .footer-logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: 18px;
+    color: var(--gray2);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .footer-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--gray2);
+    text-transform: uppercase;
+  }
+  .footer-road {
+    margin-top: 14px;
+    font-size: 20px;
+    opacity: 0.15;
+    letter-spacing: 4px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .item-card {
+    animation: fadeUp 0.25s ease both;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="skull-icon">☠️</span>
+  <div class="logo">ЗІГ <span>ЗАГ</span></div>
+  <div class="divider-line"><span>✦</span></div>
+  <div class="tagline">Кафе · Нетишин · Відчуй дорогу</div>
+</div>
+
+<div class="cat-bar" id="catBar"></div>
+
+<div class="menu-body" id="menuBody"></div>
+
+<div class="footer">
+  <div class="footer-logo">ЗІГ ЗАГ</div>
+  <div class="footer-text">Меню актуальне · Ціни вказані з ПДВ</div>
+  <div class="footer-road">— — — — —</div>
+</div>
+
+<script>
+const menu = {
+  "Кава": [
+    { name: "Еспресо", desc: "Подвійний шот, класика", price: "55 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Американо", desc: "Еспресо з гарячою водою, 300 мл", price: "60 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Капучино", desc: "Еспресо з бархатистою молочною пінкою", price: "75 ₴" },
+    { name: "Флет вайт", desc: "Міцна кава з мікропінкою, 200 мл", price: "80 ₴", badges: [{type:"new",text:"новинка"}] },
+    { name: "Раф кава", desc: "Еспресо, вершки, ваніль", price: "90 ₴" },
+    { name: "Матча лате", desc: "Японський зелений чай з молоком", price: "95 ₴", badges: [{type:"veg",text:"веган"}] },
+  ],
+  "Чай": [
+    { name: "Чорний чай", desc: "Цейлонський, чайник 500 мл", price: "55 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Трав'яний збір", desc: "М'ята, меліса, чебрець, шипшина", price: "60 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Масала чай", desc: "Зі спеціями та молоком", price: "70 ₴" },
+    { name: "Імбирний чай", desc: "Свіжий імбир, лимон, мед", price: "65 ₴", badges: [{type:"spicy",text:"гостре"}] },
+  ],
+  "Сніданки": [
+    { name: "Авокадо тост", desc: "Цільнозерновий хліб, авокадо, яйце пашот, мікрозелень", price: "185 ₴", badges: [{type:"veg",text:"вегетар."}] },
+    { name: "Скрембл", desc: "Три яйця, вершкове масло, тости, помідор чері", price: "135 ₴" },
+    { name: "Вівсяна каша", desc: "На молоці, сезонні ягоди, мед", price: "115 ₴", badges: [{type:"veg",text:"вегетар."}] },
+    { name: "Круасан з шинкою", desc: "Свіжа випічка, шинка, сир", price: "125 ₴" },
+    { name: "Сирники", desc: "З сметаною і домашнім варенням", price: "145 ₴", badges: [{type:"new",text:"новинка"}] },
+  ],
+  "Десерти": [
+    { name: "Чізкейк Нью-Йорк", desc: "Класичний, з ягідним соусом", price: "145 ₴" },
+    { name: "Тірамісу", desc: "З маскарпоне, просочений еспресо", price: "155 ₴" },
+    { name: "Брауні", desc: "Шоколадний, з горіхами, тепле подання", price: "120 ₴", badges: [{type:"new",text:"новинка"}] },
+    { name: "Медовик", desc: "Домашній, з вершковим кремом", price: "130 ₴" },
+    { name: "Вафлі", desc: "Бельгійські, з вершками та полуницею", price: "160 ₴" },
+  ],
+  "Закуски": [
+    { name: "Нагетси курячі", desc: "8 шт., соус на вибір", price: "155 ₴" },
+    { name: "Картопля фрі", desc: "Хрустка, з соусом чілі або кетчупом", price: "95 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Сирні кульки", desc: "6 шт., смажені, з часниковим соусом", price: "135 ₴" },
+    { name: "Бутерброд клаб", desc: "Куряче філе, бекон, салат, томат, соус", price: "175 ₴" },
+    { name: "Гострі крила", desc: "6 шт., соус буффало, овочі", price: "195 ₴", badges: [{type:"spicy",text:"гостре"}] },
+  ],
+  "Напої": [
+    { name: "Лимонад домашній", desc: "Лимон, м'ята, імбир, газована вода", price: "85 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Фреш апельсин", desc: "Свіжовичавлений, 300 мл", price: "95 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Смузі зелений", desc: "Шпинат, банан, манго, кокосове молоко", price: "115 ₴", badges: [{type:"veg",text:"веган"}] },
+    { name: "Кола / Sprite", desc: "0.33 л, скляна пляшка", price: "55 ₴" },
+    { name: "Мінеральна вода", desc: "Газована або негазована, 0.5 л", price: "45 ₴" },
+  ],
+};
+
+const cats = Object.keys(menu);
+let active = cats[0];
+
+const catBar = document.getElementById('catBar');
+const menuBody = document.getElementById('menuBody');
+
+function renderCats() {
+  catBar.innerHTML = '';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn' + (cat === active ? ' active' : '');
+    btn.textContent = cat;
+    btn.onclick = () => { active = cat; renderCats(); renderItems(); };
+    catBar.appendChild(btn);
+  });
+}
+
+function renderItems() {
+  const items = menu[active];
+  let html = `<div class="section-title">${active}</div>`;
+  items.forEach((item, i) => {
+    const badges = (item.badges || []).map(b =>
+      `<span class="badge badge-${b.type}">${b.text}</span>`
+    ).join('');
+    html += `
+      <div class="item-card" style="animation-delay:${i * 0.04}s">
+        <div class="item-info">
+          <div class="item-name">${item.name}</div>
+          <div class="item-desc">${item.desc}</div>
+          ${badges ? `<div class="badges">${badges}</div>` : ''}
+        </div>
+        <div class="item-price">${item.price}</div>
+      </div>`;
+  });
+  menuBody.innerHTML = html;
+}
+
+renderCats();
+renderItems();
+</script>
+</body>
+</html>
