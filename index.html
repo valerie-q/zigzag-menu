@@ -31,54 +31,36 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── HEADER ── */
   .header {
     position: relative;
     background: var(--black);
-    padding: 36px 20px 28px;
+    padding: 32px 20px 24px;
     text-align: center;
     border-bottom: 2px solid var(--red);
     overflow: hidden;
   }
-
   .header::before {
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 18px,
-        rgba(204,31,31,0.04) 18px,
-        rgba(204,31,31,0.04) 19px
-      );
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 18px,
+      rgba(204,31,31,0.04) 18px, rgba(204,31,31,0.04) 19px
+    );
     pointer-events: none;
   }
 
-  .skull-icon {
-    font-size: 28px;
-    line-height: 1;
-    margin-bottom: 6px;
-    display: block;
-    filter: grayscale(1) brightness(0.6);
-  }
+  .skull-icon { font-size: 26px; line-height: 1; margin-bottom: 6px; display: block; filter: grayscale(1) brightness(0.5); }
 
   .logo {
     font-family: 'Black Ops One', cursive;
-    font-size: clamp(44px, 14vw, 62px);
+    font-size: clamp(42px, 13vw, 60px);
     color: #fff;
     letter-spacing: 4px;
     line-height: 1;
-    text-shadow:
-      3px 3px 0 var(--red-dark),
-      6px 6px 0 rgba(0,0,0,0.5);
-    position: relative;
+    text-shadow: 3px 3px 0 var(--red-dark), 6px 6px 0 rgba(0,0,0,0.5);
   }
-
-  .logo span {
-    color: var(--red);
-  }
+  .logo span { color: var(--red); }
 
   .tagline {
     font-family: 'Oswald', sans-serif;
@@ -89,195 +71,163 @@
     margin-top: 8px;
     text-transform: uppercase;
   }
+  .insta {
+    font-size: 12px;
+    color: var(--gray2);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+  .insta span { color: #888; }
 
   .divider-line {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 14px auto 0;
-    max-width: 280px;
+    display: flex; align-items: center; gap: 10px;
+    margin: 12px auto 0; max-width: 260px;
   }
-  .divider-line::before,
-  .divider-line::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--red-dark);
+  .divider-line::before, .divider-line::after {
+    content: ''; flex: 1; height: 1px; background: var(--red-dark);
   }
-  .divider-line span {
-    color: var(--red);
-    font-size: 14px;
-  }
+  .divider-line span { color: var(--red); font-size: 13px; }
 
-  /* ── CATEGORY BAR ── */
+  /* CATEGORY BAR */
   .cat-bar {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    display: flex; gap: 0;
+    overflow-x: auto; scrollbar-width: none;
     background: var(--black2);
     border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: sticky; top: 0; z-index: 100;
   }
   .cat-bar::-webkit-scrollbar { display: none; }
 
   .cat-btn {
     flex-shrink: 0;
-    padding: 13px 18px;
+    padding: 12px 16px;
     background: transparent;
     border: none;
     border-bottom: 3px solid transparent;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 1.5px;
+    font-size: 12px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--gray);
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
   }
-  .cat-btn:hover {
-    color: var(--cream);
-    background: var(--black3);
-  }
-  .cat-btn.active {
-    color: var(--red-light);
-    border-bottom-color: var(--red);
-    background: var(--black3);
-  }
+  .cat-btn:hover { color: var(--cream); background: var(--black3); }
+  .cat-btn.active { color: var(--red-light); border-bottom-color: var(--red); background: var(--black3); }
 
-  /* ── MENU BODY ── */
-  .menu-body {
-    padding: 20px 16px 32px;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+  /* MENU BODY */
+  .menu-body { padding: 18px 14px 30px; max-width: 480px; margin: 0 auto; }
 
   .section-title {
     font-family: 'Black Ops One', cursive;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--red);
     letter-spacing: 2px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     margin-top: 4px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex; align-items: center; gap: 10px;
   }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--red-dark);
-    opacity: 0.5;
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--red-dark); opacity: 0.5; }
+
+  /* SUBSECTION */
+  .subsection-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray2);
+    border-left: 2px solid var(--red-dark);
+    padding-left: 8px;
+    margin: 18px 0 10px;
   }
 
-  /* ── ITEM CARD ── */
+  /* ITEM CARD */
   .item-card {
     background: var(--black2);
     border: 1px solid var(--border);
     border-left: 3px solid var(--red-dark);
     border-radius: 4px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
+    padding: 13px 14px;
+    margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
     transition: border-left-color 0.2s, background 0.2s;
   }
-  .item-card:active {
-    border-left-color: var(--red-light);
-    background: var(--black3);
-  }
+  .item-card:active { border-left-color: var(--red-light); background: var(--black3); }
 
   .item-info { flex: 1; min-width: 0; }
 
   .item-name {
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--cream);
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+    margin-bottom: 3px;
+    line-height: 1.3;
   }
-
   .item-desc {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--gray);
     line-height: 1.5;
   }
-
-  .badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 7px;
-  }
-  .badge {
+  .item-weight {
     font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 2px;
+    font-weight: 300;
+    font-size: 11px;
+    color: var(--gray2);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
   }
-  .badge-veg   { background: rgba(50,120,50,0.15); color: #7ec97e; border: 1px solid rgba(50,120,50,0.3); }
-  .badge-spicy { background: rgba(204,31,31,0.15); color: var(--red-light); border: 1px solid rgba(204,31,31,0.3); }
-  .badge-new   { background: rgba(200,150,30,0.15); color: #d4a835; border: 1px solid rgba(200,150,30,0.3); }
 
   .item-price {
     font-family: 'Black Ops One', cursive;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--red-light);
     white-space: nowrap;
     padding-top: 1px;
+    flex-shrink: 0;
   }
 
-  /* ── FOOTER ── */
+  /* ALLERGY NOTE */
+  .allergy-note {
+    text-align: center;
+    padding: 14px 16px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--gray2);
+    letter-spacing: 0.5px;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* FOOTER */
   .footer {
     text-align: center;
-    padding: 24px 20px 36px;
+    padding: 18px 20px 34px;
     border-top: 1px solid var(--border);
     max-width: 480px;
     margin: 0 auto;
   }
-  .footer-logo {
-    font-family: 'Black Ops One', cursive;
-    font-size: 18px;
-    color: var(--gray2);
-    letter-spacing: 3px;
-    margin-bottom: 6px;
-  }
-  .footer-text {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 300;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    color: var(--gray2);
-    text-transform: uppercase;
-  }
-  .footer-road {
-    margin-top: 14px;
-    font-size: 20px;
-    opacity: 0.15;
-    letter-spacing: 4px;
-  }
+  .footer-logo { font-family: 'Black Ops One', cursive; font-size: 16px; color: var(--gray2); letter-spacing: 3px; margin-bottom: 5px; }
+  .footer-text { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 1.5px; color: var(--gray2); text-transform: uppercase; }
+  .footer-road { margin-top: 12px; font-size: 18px; opacity: 0.12; letter-spacing: 4px; }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .item-card {
-    animation: fadeUp 0.25s ease both;
-  }
+  .item-card { animation: fadeUp 0.22s ease both; }
 </style>
 </head>
 <body>
@@ -286,63 +236,117 @@
   <span class="skull-icon">☠️</span>
   <div class="logo">ЗІГ <span>ЗАГ</span></div>
   <div class="divider-line"><span>✦</span></div>
-  <div class="tagline">Кафе · Нетишин · Відчуй дорогу</div>
+  <div class="tagline">Меню закладу</div>
+  <div class="insta"><span>@zig_zag_kp</span></div>
 </div>
 
 <div class="cat-bar" id="catBar"></div>
-
 <div class="menu-body" id="menuBody"></div>
+
+<div class="allergy-note">
+  Якщо у вас алергія на певний продукт з меню,<br>попередьте, будь ласка, нас завчасно
+</div>
 
 <div class="footer">
   <div class="footer-logo">ЗІГ ЗАГ</div>
-  <div class="footer-text">Меню актуальне · Ціни вказані з ПДВ</div>
+
   <div class="footer-road">— — — — —</div>
 </div>
 
 <script>
 const menu = {
-  "Кава": [
-    { name: "Еспресо", desc: "Подвійний шот, класика", price: "55 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Американо", desc: "Еспресо з гарячою водою, 300 мл", price: "60 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Капучино", desc: "Еспресо з бархатистою молочною пінкою", price: "75 ₴" },
-    { name: "Флет вайт", desc: "Міцна кава з мікропінкою, 200 мл", price: "80 ₴", badges: [{type:"new",text:"новинка"}] },
-    { name: "Раф кава", desc: "Еспресо, вершки, ваніль", price: "90 ₴" },
-    { name: "Матча лате", desc: "Японський зелений чай з молоком", price: "95 ₴", badges: [{type:"veg",text:"веган"}] },
-  ],
-  "Чай": [
-    { name: "Чорний чай", desc: "Цейлонський, чайник 500 мл", price: "55 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Трав'яний збір", desc: "М'ята, меліса, чебрець, шипшина", price: "60 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Масала чай", desc: "Зі спеціями та молоком", price: "70 ₴" },
-    { name: "Імбирний чай", desc: "Свіжий імбир, лимон, мед", price: "65 ₴", badges: [{type:"spicy",text:"гостре"}] },
-  ],
-  "Сніданки": [
-    { name: "Авокадо тост", desc: "Цільнозерновий хліб, авокадо, яйце пашот, мікрозелень", price: "185 ₴", badges: [{type:"veg",text:"вегетар."}] },
-    { name: "Скрембл", desc: "Три яйця, вершкове масло, тости, помідор чері", price: "135 ₴" },
-    { name: "Вівсяна каша", desc: "На молоці, сезонні ягоди, мед", price: "115 ₴", badges: [{type:"veg",text:"вегетар."}] },
-    { name: "Круасан з шинкою", desc: "Свіжа випічка, шинка, сир", price: "125 ₴" },
-    { name: "Сирники", desc: "З сметаною і домашнім варенням", price: "145 ₴", badges: [{type:"new",text:"новинка"}] },
-  ],
-  "Десерти": [
-    { name: "Чізкейк Нью-Йорк", desc: "Класичний, з ягідним соусом", price: "145 ₴" },
-    { name: "Тірамісу", desc: "З маскарпоне, просочений еспресо", price: "155 ₴" },
-    { name: "Брауні", desc: "Шоколадний, з горіхами, тепле подання", price: "120 ₴", badges: [{type:"new",text:"новинка"}] },
-    { name: "Медовик", desc: "Домашній, з вершковим кремом", price: "130 ₴" },
-    { name: "Вафлі", desc: "Бельгійські, з вершками та полуницею", price: "160 ₴" },
-  ],
-  "Закуски": [
-    { name: "Нагетси курячі", desc: "8 шт., соус на вибір", price: "155 ₴" },
-    { name: "Картопля фрі", desc: "Хрустка, з соусом чілі або кетчупом", price: "95 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Сирні кульки", desc: "6 шт., смажені, з часниковим соусом", price: "135 ₴" },
-    { name: "Бутерброд клаб", desc: "Куряче філе, бекон, салат, томат, соус", price: "175 ₴" },
-    { name: "Гострі крила", desc: "6 шт., соус буффало, овочі", price: "195 ₴", badges: [{type:"spicy",text:"гостре"}] },
-  ],
-  "Напої": [
-    { name: "Лимонад домашній", desc: "Лимон, м'ята, імбир, газована вода", price: "85 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Фреш апельсин", desc: "Свіжовичавлений, 300 мл", price: "95 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Смузі зелений", desc: "Шпинат, банан, манго, кокосове молоко", price: "115 ₴", badges: [{type:"veg",text:"веган"}] },
-    { name: "Кола / Sprite", desc: "0.33 л, скляна пляшка", price: "55 ₴" },
-    { name: "Мінеральна вода", desc: "Газована або негазована, 0.5 л", price: "45 ₴" },
-  ],
+  "Сніданки": {
+    items: [
+      { name: "Вівсянка", desc: "на воді або молоці з горіхами", weight: "300 г", price: "65 ₴" },
+      { name: "Шакшука", desc: "яйця курячі, томатний соус, цибуля ріпчаста, перець гострий, зіра, моцарелла, хліб тостерний", weight: "300 г", price: "105 ₴" },
+      { name: "Сніданок по норвезьки", desc: "яйця курячі, лосось с/с, огірок свіжий, крем сир, хліб тостерний, лист салату", weight: "300 г", price: "180 ₴" },
+      { name: "Сирники", desc: "курага, карамель", weight: "250/50 г", price: "95 ₴" },
+      { name: "Омлет", desc: "із мисливськими ковбасками, печерицями, сиром та томатами", weight: "300 г", price: "125 ₴" },
+      { name: "Англійський", desc: "яйця курячі, мисливські ковбаски, бекон, печериці, квасоля в томаті, помідор, масло вершкове, хліб тостерний, лист салату", weight: "300 г", price: "140 ₴" },
+      { name: "Млинці з куркою та печерицями", desc: "цибуля, сир твердий, мікс салату", weight: "225 г", price: "115 ₴" },
+      { name: "Супер тост", desc: "лист салату, сир, куряча грудка гриль, томати, соус Цезар", weight: "300 г", price: "110 ₴" },
+    ]
+  },
+  "Салати": {
+    subsections: [
+      {
+        title: "Теплі салати",
+        items: [
+          { name: "З телятиною та овочами гриль під горіховим соусом", desc: "листя салату, томат, телятина, печериці, баклажан, цибуля ріпчаста, перець солодкий, соус горіховий", weight: "250 г", price: "190 ₴" },
+          { name: "Цезар з куркою", desc: "листя салату, грудка куряча гриль, перепелині яйця, томати, соус «Цезар», пармезан, сухарики", weight: "200 г", price: "140 ₴" },
+          { name: "З креветками", desc: "лист салату, рукола, креветки, авокадо, помідори, кунжут чорний, соус теріякі, салатна заправка", weight: "250 г", price: "185 ₴" },
+        ]
+      },
+      {
+        title: "Холодні салати",
+        items: [
+          { name: "Капрезе", desc: "в'ялені томати, моцарелла, лист салату, соус песто", weight: "250 г", price: "110 ₴" },
+          { name: "Салат з капусти", desc: "капуста білокачанна, морква, зелень, цибуля", weight: "150 г", price: "60 ₴" },
+          { name: "Грецький", desc: "огірок, томати, перець солодкий, сир фета, лист салату, червона цибуля, орегано/базилік, маслини/оливки, оливкова олія", weight: "250 г", price: "110 ₴" },
+          { name: "Цезар з лососем", desc: "листя салату, лосось с/с, перепелині яйця, томати, соус «Цезар», пармезан, сухарики", weight: "200 г", price: "185 ₴" },
+          { name: "Український байкер", desc: "яйце куряче, бекон, печериці смажені, огірок солоний, майонезна заправка", weight: "250 г", price: "100 ₴" },
+          { name: "З буряком та фетою", desc: "рукола, мигдальні пластівці, соус медово-гірчичний", weight: "200 г", price: "85 ₴" },
+        ]
+      }
+    ]
+  },
+  "Перші": {
+    subsections: [
+      {
+        title: "Перші страви",
+        items: [
+          { name: "Борщ Український", desc: "із свининою та сметаною", weight: "350/20 г", price: "75 ₴" },
+          { name: "Бограч Закарпатський", desc: "", weight: "350 г", price: "110 ₴" },
+          { name: "Грибна юшка", desc: "", weight: "350 г", price: "75 ₴" },
+          { name: "Солянка збірна", desc: "", weight: "350 г", price: "95 ₴" },
+          { name: "Гарбузовий крем-суп", desc: "з хлібними тостами та пармезаном", weight: "350/30 г", price: "75 ₴" },
+        ]
+      },
+      {
+        title: "Гарніри",
+        items: [
+          { name: "Картопля по-селянськи з часниковим соусом", desc: "", weight: "200/30 г", price: "68 ₴" },
+          { name: "Картопля під сирним соусом", desc: "", weight: "200/100 г", price: "80 ₴" },
+          { name: "Картопля фрі з соусом", desc: "", weight: "160/50 г", price: "75 ₴" },
+          { name: "Картопляне пюре з вершковим маслом", desc: "", weight: "200 г", price: "55 ₴" },
+          { name: "Рис з овочами", desc: "", weight: "250 г", price: "85 ₴" },
+          { name: "Банош", desc: "додатки на вибір: шкварки / грибний соус / бринза — 25 ₴ кожен", weight: "200 г", price: "65 ₴" },
+        ]
+      }
+    ]
+  },
+  "Основні": {
+    items: [
+      { name: "Панський дерун", desc: "печериці, свинина, соус бешамель, сир", weight: "300 г", price: "150 ₴" },
+      { name: "Шніцель із свининою та соусом", desc: "", weight: "220/50 г", price: "100 ₴" },
+      { name: "Телятина з печерицями у вершковому соусі", desc: "", weight: "280 г", price: "190 ₴" },
+      { name: "М'ясна гаряча сковорідка з овочами", desc: "куряча грудка, свинина, ковбаски-гриль, печериці, цибуля ріпчаста, морква, перець солодкий, перець чилі, зелень", weight: "200/50 г", price: "200 ₴" },
+      { name: "Риба запечена з овочами під сиром", desc: "", weight: "350 г", price: "170 ₴" },
+      { name: "Короп смажений", desc: "", weight: "100 г", price: "45 ₴" },
+      { name: "Карасі смажені з часниковим соусом", desc: "", weight: "250 г", price: "95 ₴" },
+      { name: "Картопля на сковорідці запечена з куркою та сиром", desc: "", weight: "350 г", price: "130 ₴" },
+      { name: "Фетучіні з лососем або креветкою у вершковому соусі", desc: "", weight: "250 г", price: "160 ₴" },
+      { name: "Спагетті з соусом Болоньєзе", desc: "", weight: "250 г", price: "120 ₴" },
+      { name: "Спагетті Карбонара", desc: "на сирих жовтках", weight: "250 г", price: "120 ₴" },
+      { name: "Вареники з картоплею", desc: "із засмажкою з бекона та цибулі з сметаною", weight: "200/50 г", price: "75 ₴" },
+      { name: "Вареники з капустою", desc: "з сметаною", weight: "200/50 г", price: "75 ₴" },
+      { name: "Пельмені з вершковим маслом", desc: "", weight: "200/20 г", price: "90 ₴" },
+    ]
+  },
+  "Закуски": {
+    items: [
+      { name: "Брускета асорті", desc: "чіабатта, крем сир, прошуто, в'ялені томати, соус песто", weight: "2 шт.", price: "90 ₴" },
+      { name: "Овочева нарізка", desc: "огірок, помідор, перець солодкий, зелень", weight: "300 г", price: "85 ₴" },
+      { name: "Козацька закуска", desc: "сало, солоний огірок, гірчиця, часник, грінки", weight: "250 г", price: "130 ₴" },
+      { name: "Закуска до пива", desc: "цибулеві кільця, кальмар, грінки, соус", weight: "300 г", price: "185 ₴" },
+      { name: "Канапки під горілку", desc: "бородинський хліб, оселедець, цибуля", weight: "2 шт.", price: "50 ₴" },
+      { name: "Antipasto", desc: "прошуто, салямі, дорблю, камамбер, в'ялені томати, маслини", weight: "300 г", price: "230 ₴" },
+      { name: "Сирна тарілка", desc: "Грана падано, фета, камамбер, моцарелла, мед, грецький горіх, мигдальні пластівці", weight: "280/30 г", price: "230 ₴" },
+      { name: "Паштет курячий з вишневим джемом та тостами", desc: "", weight: "250/80 г", price: "125 ₴" },
+      { name: "Домашні маринади", desc: "", weight: "260 г", price: "100 ₴" },
+      { name: "Оселедець по-домашньому", desc: "", weight: "250 г", price: "110 ₴" },
+    ]
+  }
 };
 
 const cats = Object.keys(menu);
@@ -362,23 +366,38 @@ function renderCats() {
   });
 }
 
+function renderItem(item, i) {
+  return `
+    <div class="item-card" style="animation-delay:${i * 0.035}s">
+      <div class="item-info">
+        <div class="item-name">${item.name}</div>
+        ${item.desc ? `<div class="item-desc">${item.desc}</div>` : ''}
+        ${item.weight ? `<div class="item-weight">${item.weight}</div>` : ''}
+      </div>
+      <div class="item-price">${item.price}</div>
+    </div>`;
+}
+
 function renderItems() {
-  const items = menu[active];
-  let html = `<div class="section-title">${active}</div>`;
-  items.forEach((item, i) => {
-    const badges = (item.badges || []).map(b =>
-      `<span class="badge badge-${b.type}">${b.text}</span>`
-    ).join('');
-    html += `
-      <div class="item-card" style="animation-delay:${i * 0.04}s">
-        <div class="item-info">
-          <div class="item-name">${item.name}</div>
-          <div class="item-desc">${item.desc}</div>
-          ${badges ? `<div class="badges">${badges}</div>` : ''}
-        </div>
-        <div class="item-price">${item.price}</div>
-      </div>`;
-  });
+  const section = menu[active];
+  let html = '';
+  let counter = 0;
+
+  if (section.items) {
+    html += `<div class="section-title">${active}</div>`;
+    section.items.forEach(item => {
+      html += renderItem(item, counter++);
+    });
+  } else if (section.subsections) {
+    section.subsections.forEach((sub, si) => {
+      if (si === 0) html += `<div class="section-title">${sub.title}</div>`;
+      else html += `<div class="subsection-title">${sub.title}</div>`;
+      sub.items.forEach(item => {
+        html += renderItem(item, counter++);
+      });
+    });
+  }
+
   menuBody.innerHTML = html;
 }
 
